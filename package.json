@@ -1,0 +1,37 @@
+{
+  "name": "joe-banks",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Joe Banks",
+  "author": "Joe Banks",
+  "keywords": [
+    "gatsby"
+  ],
+  "scripts": {
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.4.0",
+    "@mdx-js/mdx": "^1.6.22",
+    "@mdx-js/react": "^1.6.22",
+    "@types/react-helmet": "^6.1.1",
+    "gatsby": "^3.6.2",
+    "gatsby-plugin-emotion": "^6.7.1",
+    "gatsby-plugin-image": "^1.7.1",
+    "gatsby-plugin-manifest": "^3.7.1",
+    "gatsby-plugin-mdx": "^2.7.1",
+    "gatsby-plugin-react-helmet": "^4.7.1",
+    "gatsby-plugin-sharp": "^3.7.1",
+    "gatsby-plugin-sitemap": "^4.3.1",
+    "gatsby-source-filesystem": "^3.7.1",
+    "gatsby-transformer-sharp": "^3.7.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-helmet": "^6.1.0",
+    "react-icons": "^4.2.0"
+  }
+}
