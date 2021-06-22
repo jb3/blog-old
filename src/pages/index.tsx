@@ -4,9 +4,9 @@ import Page from "../layouts/page";
 
 import "../styles/global.css";
 
-const IndexPage = ({ location }: { location: any}) => {
+const IndexPage = () => {
   return (
-    <Page title="Home" location={location}>
+    <Page title="Home">
       <title>Home</title>
       <h1>Joe Banks</h1>
       

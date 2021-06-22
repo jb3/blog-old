@@ -10,7 +10,7 @@ const pageStyles = {
 
 export default function Page(props: Record<string, any>) {
     return (<div style={pageStyles}>
-        <NavBar location={props.location}/>
+        <NavBar/>
 
         <Helmet>
             {props.title ? <title>{props.title} • Joe Banks</title> : <title>Joe Banks</title>}
