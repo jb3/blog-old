@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: "Joe Banks",
-    siteUrl: "https://jb3.pages.dev/"
+    siteUrl: "https://jb3.dev/"
   },
   plugins: [
     "gatsby-plugin-emotion",
