@@ -58,17 +58,17 @@ const SOCIALS = [
     }
 ]
 
-export default function NavBar() {
+export default function NavBar({ location }: {location: Location}) {
     return <div style={navBarStyles}>
         <img src={icon} style={logoStyles}/>
         {
             NAVBAR_ITEMS.map(v => {
-                return document.location.pathname === v.href ? <Link to={v.href} style={{...nameStyles, textDecoration: "underline"}} key={v.title}>{v.title}</Link> : <Link to={v.href} style={nameStyles} key={v.title}>{v.title}</Link>
+                return location.pathname === v.href ? <Link to={v.href} style={{...nameStyles, textDecoration: "underline"}} key={v.title}>{v.title}</Link> : <Link to={v.href} style={nameStyles} key={v.title}>{v.title}</Link>
             })
         }
         <div style={{flexGrow: 1}}></div>
         {
-            SOCIALS.map(acc => <a href={acc.to} css={{...nameStyles, ...iconStyles}} key={acc.to}><acc.Icon/></a>)
+            SOCIALS.map(acc => <a href={acc.to} style={{...nameStyles, ...iconStyles}} key={acc.to}><acc.Icon/></a>)
         }
     </div>
 }

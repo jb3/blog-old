@@ -6,9 +6,9 @@ import Page from "../layouts/page";
 
 import "../styles/global.css";
 
-const ProjectPage = () => {
+const ProjectPage = ({ location }: { location: any}) => {
   return (
-    <Page title="Projects">
+    <Page title="Projects" location={location}>
       <h1>Projects</h1>
       <ul>
         <li>Python Discord</li>
