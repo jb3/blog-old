@@ -54,19 +54,19 @@ const SOCIALS = [
     },
     {
         Icon: FaDiscord,
-        to: "https://discord.gg/python"
+        to: "https://discord.gg/g3RsJbc5C4"
     }
 ]
 
 export default function NavBar() {
     return <div style={navBarStyles}>
-        <img src={icon} style={logoStyles}/>
+        <img src={icon} style={logoStyles} />
         {
-            NAVBAR_ITEMS.map(v => <Link to={v.href} style={nameStyles} activeStyle={{textDecoration: "underline"}} key={v.title}>{v.title}</Link>)
+            NAVBAR_ITEMS.map(v => <Link to={v.href} style={nameStyles} activeStyle={{ textDecoration: "underline" }} key={v.title}>{v.title}</Link>)
         }
-        <div style={{flexGrow: 1}}></div>
+        <div style={{ flexGrow: 1 }}></div>
         {
-            SOCIALS.map(acc => <a href={acc.to} style={{...nameStyles, ...iconStyles}} key={acc.to}><acc.Icon/></a>)
+            SOCIALS.map(acc => <a href={acc.to} style={{ ...nameStyles, ...iconStyles }} key={acc.to}><acc.Icon /></a>)
         }
     </div>
 }

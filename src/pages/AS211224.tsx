@@ -14,4 +14,4 @@ const AS211224 = () => {
   )
 }
 
-export default AS211224
+export default AS211224;
