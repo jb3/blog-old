@@ -1,16 +1,21 @@
-import * as React from "react"
+/** @jsx jsx */
+import { jsx, css } from "@emotion/react"
 import NavBar from "../components/navbar"
 
 import { Helmet } from "react-helmet";
 
-const pageStyles = {
-    "fontFamily": "Roboto, sans-serif",
-    "margin": "30px 25% 0 25%"
+const pageStyles = css`
+font-family: "Roboto", sans-serif;
+padding: 96px;
+
+@media (max-width: 700px) {
+    padding: 20px;
 }
+`;
 
 export default function Page(props: Record<string, any>) {
-    return (<div style={pageStyles}>
-        <NavBar/>
+    return (<div css={pageStyles}>
+        <NavBar />
 
         <Helmet>
             {props.title ? <title>{props.title} • Joe Banks</title> : <title>Joe Banks</title>}

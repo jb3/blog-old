@@ -34,10 +34,6 @@ const NAVBAR_ITEMS = [
         "href": "/"
     },
     {
-        "title": "Projects",
-        "href": "/projects"
-    },
-    {
         "title": "AS211224",
         "href": "/AS211224"
     },
@@ -62,7 +58,7 @@ export default function NavBar() {
     return <div style={navBarStyles}>
         <img src={icon} style={logoStyles} />
         {
-            NAVBAR_ITEMS.map(v => <Link to={v.href} style={nameStyles} activeStyle={{ textDecoration: "underline" }} key={v.title}>{v.title}</Link>)
+            NAVBAR_ITEMS.map(v => <Link to={v.href} style={nameStyles} activeStyle={{ textDecoration: "underline", color: `var(--active)` }} key={v.title}>{v.title}</Link>)
         }
         <div style={{ flexGrow: 1 }}></div>
         {
