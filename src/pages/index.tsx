@@ -19,7 +19,7 @@ const IndexPage = () => {
 
       <p>I've got interests in several areas of Computer Science, but primarily work on web development. I'm also interested in networking (particularly DNS, BGP and similar technologies) and computer vision.</p>
 
-      <p>In my free time, I'm an owner at <a href="https://pythondiscord.com/">Python Discord</a>, one of the largest programming communities on the planet with over 250,000 members. I also administrate the hobbyist network <Link href="/AS211224">AS211224 (JB3)</Link>, more details can be found on the AS211224 home page.</p>
+      <p>In my free time, I'm an owner at <a href="https://pythondiscord.com/">Python Discord</a>, one of the largest programming communities on the planet with over 250,000 members. I also administrate the hobbyist network <Link to="/AS211224">AS211224 (JB3)</Link>, more details can be found on the AS211224 home page.</p>
     </Page >
   )
 }
