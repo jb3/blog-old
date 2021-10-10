@@ -14,7 +14,6 @@ module.exports = {
         icon: "src/images/icon.png",
       },
     },
-    "gatsby-plugin-mdx",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     {
@@ -26,12 +25,21 @@ module.exports = {
       __key: "images",
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `markdown-projects`,
+        path: `${__dirname}/src/projects`,
+      },
+      __key: "projects"
+    },
+    {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "pages",
         path: "./src/pages/",
       },
       __key: "pages",
-    }
+    },
+    "gatsby-plugin-mdx"
   ],
 };
