@@ -2,6 +2,7 @@
 import { jsx, css } from "@emotion/react"
 import NavBar from "../components/navbar"
 import "../styles/global.css";
+import logo from "../images/icon.png";
 
 import { Helmet } from "react-helmet";
 
@@ -14,12 +15,24 @@ padding: 96px;
 }
 `;
 
-export default function Page(props: Record<string, any>) {
+interface PageProps {
+    title?: string;
+    description?: string;
+    children: React.ReactNode;
+}
+
+export default function Page(props: PageProps) {
+    let description = props.description ? props.description : "Hey, I'm Joe! I'm a student at the University of Nottingham studying Computer Science and owner of Python Discord";
     return (<div css={pageStyles}>
         <NavBar />
 
         <Helmet>
             {props.title ? <title>{props.title} • Joe Banks</title> : <title>Joe Banks</title>}
+            <meta name="description" content={description} />
+            <meta name="og:image" content={logo} />
+            <meta name="twitter:creator" content="@JoeBanksDev" />
+            <meta name="twitter:description" content={description} />
+            <meta name="theme-color" content="#616283" />
         </Helmet>
 
         {props.children}

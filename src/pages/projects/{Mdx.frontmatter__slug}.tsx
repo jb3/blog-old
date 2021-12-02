@@ -18,7 +18,7 @@ export default function Template({
 
   let sep = (frontmatter.dates && frontmatter.externalLink) ? "•" : "";
   return (
-    <Page title={frontmatter.title}>
+    <Page title={frontmatter.title} description={mdx.excerpt}>
       <h1 style={{ marginBottom: 5 }}>{frontmatter.title}</h1>
       <span css={datesStyles}>{frontmatter.dates ? frontmatter.dates : null} {sep} </span><span><a href={frontmatter.externalLink}>{frontmatter.externalLink}</a></span>
       <MDXRenderer>{body}</MDXRenderer>
@@ -30,6 +30,7 @@ export const pageQuery = graphql`
 query mdxPage($id: String) {
     mdx (id: { eq: $id }) {
       body
+      excerpt
       frontmatter {
         title
         slug
