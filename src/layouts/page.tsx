@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import { jsx, css } from "@emotion/react"
 import NavBar from "../components/navbar"
+import "../styles/global.css";
 
 import { Helmet } from "react-helmet";
 
