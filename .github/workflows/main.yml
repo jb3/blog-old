@@ -29,3 +29,27 @@ jobs:
         with:
           name: build
           path: public
+          
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          repository: "jb3/infra"
+
+      - name: Download a Build Artifact
+        uses: actions/download-artifact@v2.0.10
+        with:
+          name: build
+          path: build
+          
+      - name: Setup SSH
+        uses: kielabokkie/ssh-key-and-known-hosts-action@v1.2.0
+        with:
+          ssh-private-key: ${{ DEPLOY_SSH }}
+
+      - name: Deploy blog playbook
+        uses: tomasnorre/ansible-cli-client@0.0.2
+        with:
+          command: ansible-playbook -i inventory playbook.yml -t blog
