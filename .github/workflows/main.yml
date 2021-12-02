@@ -49,6 +49,9 @@ jobs:
         uses: kielabokkie/ssh-key-and-known-hosts-action@v1.2.0
         with:
           ssh-private-key: ${{ secrets.DEPLOY_SSH }}
+          ssh-host: ${{ secrets.DEPLOY_HOST }}
+          ssh-port: 22
+          
 
       - name: Deploy blog playbook
         uses: tomasnorre/ansible-cli-client@0.0.2
