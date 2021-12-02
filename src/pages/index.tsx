@@ -50,7 +50,7 @@ query Projects {
   allMdx {
     edges {
       node {
-        excerpt
+        excerpt(pruneLength: 200)
         frontmatter {
 					title
           slug

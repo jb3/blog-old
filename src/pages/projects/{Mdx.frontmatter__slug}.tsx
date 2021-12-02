@@ -30,7 +30,7 @@ export const pageQuery = graphql`
 query mdxPage($id: String) {
     mdx (id: { eq: $id }) {
       body
-      excerpt
+      excerpt(pruneLength: 200)
       frontmatter {
         title
         slug
