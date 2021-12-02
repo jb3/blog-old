@@ -50,10 +50,8 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.DEPLOY_SSH }}
           ssh-host: ${{ secrets.DEPLOY_HOST }}
-          ssh-port: 22
-          
 
       - name: Deploy blog playbook
         uses: tomasnorre/ansible-cli-client@0.0.2
         with:
-          command: ansible-playbook -i inventory playbook.yml -t blog
+          command: ansible-playbook -i inventory playbook.yml -t blog -l web
