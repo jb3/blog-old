@@ -11,12 +11,12 @@ h1 {
     font-size: 3em;
 }
 
-a {
+:not(div) > a {
     color: var(--link-color);
     text-decoration: none;
     transition: filter 250ms;
 }
 
-a:hover {
+:not(div) > a:hover {
     filter: brightness(50%);
 }

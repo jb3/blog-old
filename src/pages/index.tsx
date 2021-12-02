@@ -1,5 +1,6 @@
+/** @jsx jsx */
 import { Link } from "gatsby";
-import * as React from "react"
+import { jsx, css } from "@emotion/react";
 
 import { graphql } from "gatsby";
 import Languages from "../components/languages";
@@ -12,6 +13,13 @@ import Project from "../components/project";
 let headerStyle = {
   color: `var(--purple)`
 }
+
+const positionStyles = css`
+position: relative;
+display: flex;
+flex-flow: row wrap;
+justify-content: center;
+`;
 
 const IndexPage = ({ data: { allMdx: { edges } } }: { data: { allMdx: { edges: Record<string, any>[] } } }) => {
   return (
@@ -30,7 +38,9 @@ const IndexPage = ({ data: { allMdx: { edges } } }: { data: { allMdx: { edges: R
 
       <h2>Projects</h2>
       <p>Most of my open-source projects are visible on my <a href="https://github.com/jb3">GitHub</a>.</p>
-      {edges.map(project => <Project key={project.node.frontmatter.slug} project={project.node} />)}
+      <div css={positionStyles}>
+        {edges.map(project => <Project key={project.node.frontmatter.slug} project={project.node} />)}
+      </div>
     </Page>
   )
 }
