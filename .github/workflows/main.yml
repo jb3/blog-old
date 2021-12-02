@@ -31,6 +31,7 @@ jobs:
           path: public
           
   deploy:
+    needs: [build]
     runs-on: ubuntu-latest
     
     steps:
@@ -47,7 +48,7 @@ jobs:
       - name: Setup SSH
         uses: kielabokkie/ssh-key-and-known-hosts-action@v1.2.0
         with:
-          ssh-private-key: ${{ DEPLOY_SSH }}
+          ssh-private-key: ${{ secrets.DEPLOY_SSH }}
 
       - name: Deploy blog playbook
         uses: tomasnorre/ansible-cli-client@0.0.2
