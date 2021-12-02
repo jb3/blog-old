@@ -26,7 +26,9 @@ export default function Page(props: PageProps) {
     return (<div css={pageStyles}>
         <NavBar />
 
-        <Helmet>
+        <Helmet htmlAttributes={{
+            lang: "en"
+        }}>
             {props.title ? <title>{props.title} • Joe Banks</title> : <title>Joe Banks</title>}
             <meta name="description" content={description} />
             <meta name="og:image" content={logo} />
@@ -36,5 +38,5 @@ export default function Page(props: PageProps) {
         </Helmet>
 
         {props.children}
-    </div>);
+    </div >);
 }
