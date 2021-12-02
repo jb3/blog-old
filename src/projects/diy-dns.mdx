@@ -1,0 +1,52 @@
+---
+slug: diy-dns
+title: DIY DNS
+dates: 2021 to Present
+externalLink: https://github.com/jb3/dns
+---
+My DIY DNS project replaced the nameservers for jb3.dev with self-hosted BIND nameservers deployed using Ansible. It implements advanced DNS features like DNSSEC, including automatic key generation.
+
+I'll eventually be writing a full blog post on how I set up this project, from having Ansible install BIND to generating DNSSEC keys and signing the zone.
+
+`ns1.jb3.dev` and `ns2.jb3.dev` are the two authorative nameservers for `jb3.dev`, you can try them for yourself using [`dig`](https://linux.die.net/man/1/dig).
+
+As an example, a DNS query for this domain, jb3.dev, will start at the DNS roots, progress to the `dev.` TLD nameservers and end up at one of the nameservers that serves the `jb3.dev.` zone. A nicer visualisation of the below dig command can be found [here](https://dns-lookup.jvns.ca/trace.html#jb3.dev).
+
+```
+$ dig +trace +nodnssec jb3.dev
+
+; <<>> DiG 9.16.23 <<>> +trace +nodnssec jb3.dev
+;; global options: +cmd
+.			7184	IN	NS	b.root-servers.net.
+.			7184	IN	NS	k.root-servers.net.
+.			7184	IN	NS	h.root-servers.net.
+.			7184	IN	NS	f.root-servers.net.
+.			7184	IN	NS	c.root-servers.net.
+.			7184	IN	NS	i.root-servers.net.
+.			7184	IN	NS	d.root-servers.net.
+.			7184	IN	NS	a.root-servers.net.
+.			7184	IN	NS	g.root-servers.net.
+.			7184	IN	NS	j.root-servers.net.
+.			7184	IN	NS	e.root-servers.net.
+.			7184	IN	NS	l.root-servers.net.
+.			7184	IN	NS	m.root-servers.net.
+;; Received 239 bytes from 127.0.0.53#53(127.0.0.53) in 0 ms
+
+dev.			172800	IN	NS	ns-tld1.charlestonroadregistry.com.
+dev.			172800	IN	NS	ns-tld2.charlestonroadregistry.com.
+dev.			172800	IN	NS	ns-tld3.charlestonroadregistry.com.
+dev.			172800	IN	NS	ns-tld4.charlestonroadregistry.com.
+dev.			172800	IN	NS	ns-tld5.charlestonroadregistry.com.
+;; Received 392 bytes from 199.7.83.42#53(l.root-servers.net) in 30 ms
+
+jb3.dev.		10800	IN	NS	ns1.jb3.dev.
+jb3.dev.		10800	IN	NS	ns2.jb3.dev.
+;; Received 104 bytes from 216.239.38.105#53(ns-tld4.charlestonroadregistry.com) in 20 ms
+
+jb3.dev.		3600	IN	A	76.76.21.21
+jb3.dev.		3600	IN	NS	ns1.jb3.dev.
+jb3.dev.		3600	IN	NS	ns2.jb3.dev.
+;; Received 148 bytes from 89.58.0.80#53(ns1.jb3.dev) in 30 ms
+```
+
+Note: DNSSEC has been omitted here for brevity, but you can see a visualisation of the DNSSEC zones [here](https://dnsviz.net/d/jb3.dev/dnssec/).
