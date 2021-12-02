@@ -44,16 +44,15 @@ jobs:
         with:
           name: build
           path: build
-          
-      - name: Setup SSH
-        uses: kielabokkie/ssh-key-and-known-hosts-action@v1.2.0
-        with:
-          ssh-private-key: ${{ secrets.DEPLOY_SSH }}
-          ssh-host: ${{ secrets.DEPLOY_HOST }}
 
-      - name: Deploy blog playbook
-        uses: tomasnorre/ansible-cli-client@0.0.2
-        with:
-          command: ansible-playbook -i inventory playbook.yml -t blog -l web
+      - name: Run playbook
+        uses: dawidd6/action-ansible-playbook@v2
         env:
           ANSIBLE_HOST_KEY_CHECKING: false
+        with:
+          playbook: playbook.yml
+          key: ${{ secrets.DEPLOY_SSH }}
+          options: |
+            -i inventory
+            --limit web
+            -t blog
