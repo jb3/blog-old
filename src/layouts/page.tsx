@@ -22,7 +22,7 @@ interface PageProps {
 }
 
 export default function Page(props: PageProps) {
-    let description = props.description ? props.description : "Hey, I'm Joe! I'm a student at the University of Nottingham studying Computer Science and owner of Python Discord";
+    let description = props.description ? props.description : "Hey, I'm Joe! I'm a student at the University of Nottingham studying Computer Science and owner of Python Discord.";
     return (<div css={pageStyles}>
         <NavBar />
 
