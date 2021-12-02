@@ -55,3 +55,5 @@ jobs:
         uses: tomasnorre/ansible-cli-client@0.0.2
         with:
           command: ansible-playbook -i inventory playbook.yml -t blog -l web
+        env:
+          ANSIBLE_HOST_KEY_CHECKING: false
