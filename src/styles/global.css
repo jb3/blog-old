@@ -25,3 +25,11 @@ h1 {
 :not(div) > a:hover {
   filter: brightness(50%);
 }
+
+pre {
+  background-color: #f0f0f0;
+  padding: 30px;
+  overflow: none;
+  white-space: pre-wrap;
+  border-radius: 15px;
+}
