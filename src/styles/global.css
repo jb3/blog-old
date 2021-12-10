@@ -2,9 +2,12 @@
 
 :root {
   --link-color: #34748e;
-  --purple: #df72b7;
   --active: #7b7077;
   --greyed: #aca4a9;
+  --purple: #df72b7;
+  --slate-blue: #7d53de;
+  --ocean-green: #59c9a5;
+  --fire-opal: #db5a42;
 }
 
 h1 {
