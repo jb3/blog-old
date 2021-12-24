@@ -41,7 +41,7 @@ jobs:
           repository: "jb3/infra"
           
       - name: Add dummy Vault password file
-        run: echo dummy > vault_passwords
+        run: echo ${{ secrets.VAULT_PASSWORD }} > vault_passwords
 
       - name: Download a Build Artifact
         uses: actions/download-artifact@v2.0.10
