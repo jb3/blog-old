@@ -39,6 +39,9 @@ jobs:
       - uses: actions/checkout@v2
         with:
           repository: "jb3/infra"
+          
+      - name: Add dummy Vault password file
+        run: echo dummy > vault_passwords
 
       - name: Download a Build Artifact
         uses: actions/download-artifact@v2.0.10
