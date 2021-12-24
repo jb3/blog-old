@@ -8,7 +8,6 @@ import {
   FaDiscord,
   FaGithub,
   FaTwitter,
-  FaGitlab,
   FaLinkedin,
 } from "react-icons/fa";
 
@@ -60,11 +59,6 @@ const SOCIALS = [
     Icon: FaDiscord,
     name: "Discord",
     to: "https://discord.gg/g3RsJbc5C4",
-  },
-  {
-    Icon: FaGitlab,
-    name: "GitLab",
-    to: "https://gitlab.com/jb3",
   },
   {
     Icon: FaLinkedin,
