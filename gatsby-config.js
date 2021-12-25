@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: "Joe Banks",
     siteUrl: "https://jb3.dev/",
-    logo: "./images/icon.png"
+    logo: "./images/icon.png",
   },
   plugins: [
     "gatsby-plugin-emotion",
@@ -31,7 +31,7 @@ module.exports = {
         name: `markdown-projects`,
         path: `${__dirname}/src/projects`,
       },
-      __key: "projects"
+      __key: "projects",
     },
     {
       resolve: "gatsby-source-filesystem",
@@ -41,6 +41,7 @@ module.exports = {
       },
       __key: "pages",
     },
-    "gatsby-plugin-mdx"
+    "gatsby-plugin-mdx",
+    "gatsby-plugin-robots-txt",
   ],
 };
