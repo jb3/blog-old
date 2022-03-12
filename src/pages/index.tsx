@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import { Link } from "gatsby";
 import { jsx, css, keyframes } from "@emotion/react";
+import { useState, useEffect } from "react";
 
 import { graphql } from "gatsby";
 import Languages from "../components/languages";
@@ -9,6 +10,8 @@ import Page from "../layouts/page";
 
 import "../styles/global.css";
 import Project from "../components/project";
+
+const PYDIS_MEMBERS_DEFAULT = 300000;
 
 let headerAnimation = keyframes`
     0% {
@@ -50,6 +53,14 @@ const IndexPage = ({
 }: {
   data: { allMdx: { edges: Record<string, any>[] } };
 }) => {
+  const [members, setMembers] = useState(PYDIS_MEMBERS_DEFAULT);
+    
+  useEffect(() => {
+      fetch("https://discord.com/api/v9/invites/python?with_counts=1")
+        .then(resp => resp.json())
+        .then(data => setMembers(Math.round(data.approximate_member_count / 1000) * 1000))
+  }, []);
+
   return (
     <Page title="Home">
       <title>Home</title>
