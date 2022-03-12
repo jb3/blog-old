@@ -58,7 +58,7 @@ const IndexPage = ({
   useEffect(() => {
       fetch("https://discord.com/api/v9/invites/python?with_counts=1")
         .then(resp => resp.json())
-        .then(data => setMembers(Math.round(data.approximate_member_count / 1000) * 1000))
+        .then(data => setMembers(Math.floor(data.approximate_member_count / 1000) * 1000))
   }, []);
 
   return (
