@@ -69,7 +69,7 @@ const IndexPage = ({
       </h1>
 
       <p>
-        I'm a first year Computer Science student at the{" "}
+        I'm a second year Computer Science student at the{" "}
         <a href="https://cs.nott.ac.uk">University of Nottingham</a>.
       </p>
 
