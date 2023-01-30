@@ -80,7 +80,7 @@ const IndexPage = ({
       </p>
 
       <p>
-        In my free time, I'm an owner at{" "}
+        I'm a co-founder of{" "}
         <a href="https://pythondiscord.com/">Python Discord</a>, one of the
         largest programming communities on the planet with over {members.toLocaleString()} members.
         I also administrate the hobbyist network{" "}
