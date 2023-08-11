@@ -3,6 +3,7 @@ module.exports = {
     title: "Joe Banks",
     siteUrl: "https://jb3.dev/",
     logo: "./images/icon.png",
+    contactMail: "joe@jb3.dev"
   },
   plugins: [
     "gatsby-plugin-emotion",

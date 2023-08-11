@@ -67,6 +67,7 @@ interface IndexQueryData {
     siteMeta: {
       siteMetadata: {
         siteUrl: string;
+        contactMail: string;
       };
     };
   }
@@ -79,7 +80,7 @@ const IndexPage = ({
       childPlainText: { content: pgpKey }
     },
     siteMeta: {
-      siteMetadata: { siteUrl }
+      siteMetadata: { siteUrl, contactMail }
     }
   }
 }: IndexQueryData) => {
@@ -117,6 +118,8 @@ const IndexPage = ({
         <Link to="/AS211224">AS211224 (JB3)</Link>, more details can be found on
         the AS211224 home page.
       </p>
+
+      <p>I'm best contacted through email, <a href={`mailto:${contactMail}`}>{contactMail}</a>, preferably encrypted with the below PGP key.</p>
 
       <details>
         <summary css={{ cursor: "pointer" }}>PGP Key 🔑</summary>
@@ -164,6 +167,7 @@ export const query = graphql`
     siteMeta: site {
       siteMetadata {
         siteUrl
+        contactMail
       }
     }
   }
