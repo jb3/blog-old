@@ -63,7 +63,12 @@ interface IndexQueryData {
       childPlainText: {
         content: string;
       }
-    }
+    },
+    siteMeta: {
+      siteMetadata: {
+        siteUrl: string;
+      };
+    };
   }
 };
 
@@ -73,6 +78,9 @@ const IndexPage = ({
     pgpKey: {
       childPlainText: { content: pgpKey }
     },
+    siteMeta: {
+      siteMetadata: { siteUrl }
+    }
   }
 }: IndexQueryData) => {
   const [members, setMembers] = useState(PYDIS_MEMBERS_DEFAULT);
@@ -112,7 +120,7 @@ const IndexPage = ({
 
       <details>
         <summary>PGP Key 🔑</summary>
-        <p>Import from <a href="/pgp.txt">{window.location.origin}/pgp.txt</a>, or alternatively copy the following into your PGP client of choice:</p>
+        <p>Import from <a href="/pgp.txt">{siteUrl}/pgp.txt</a>, or alternatively copy the following into your PGP client of choice:</p>
         <pre>{pgpKey}</pre>
       </details>
 
@@ -150,6 +158,12 @@ export const query = graphql`
     pgpKey: file(sourceInstanceName: {eq: "static-files"}, name: {eq: "pgp"}) {
         childPlainText {
           content
+      }
+    }
+
+    siteMeta: site {
+      siteMetadata {
+        siteUrl
       }
     }
   }
