@@ -35,6 +35,19 @@ let headerAnimation = keyframes`
     }
 `;
 
+let summarySweep = keyframes`
+  0%    {opacity: 0; transform: translateX(-30px)}
+  100%  {opacity: 1; transform: translateX(0)}
+`
+
+let detailsCss = css`
+line-break: anywhere;
+
+&[open] summary ~ * {
+  animation: ${summarySweep} .75s ease-in-out;
+}
+`;
+
 let headerStyle = css`
   animation: ${headerAnimation} 5s linear infinite;
 `;
@@ -121,7 +134,7 @@ const IndexPage = ({
 
       <p>I'm best contacted through email, <a href={`mailto:${contactMail}`}>{contactMail}</a>, preferably encrypted with the below PGP key.</p>
 
-      <details>
+      <details css={detailsCss}>
         <summary css={{ cursor: "pointer" }}>PGP Key 🔑</summary>
         <p>Import from <a href="/pgp.txt">{siteUrl}/pgp.txt</a>, or alternatively copy the following into your PGP client of choice:</p>
         <pre>{pgpKey}</pre>
