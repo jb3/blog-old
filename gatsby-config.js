@@ -17,6 +17,7 @@ module.exports = {
     },
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
+    "gatsby-transformer-plaintext",
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -32,6 +33,14 @@ module.exports = {
         path: `${__dirname}/src/projects`,
       },
       __key: "projects",
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `static-files`,
+        path: `${__dirname}/static`,
+      },
+      __key: "static-files",
     },
     {
       resolve: "gatsby-source-filesystem",

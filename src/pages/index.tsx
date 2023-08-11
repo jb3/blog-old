@@ -46,19 +46,41 @@ const positionStyles = css`
   justify-content: center;
 `;
 
+interface IndexQueryData {
+  data: {
+    projectData: {
+      edges: {
+        node: {
+          excerpt: string;
+          frontmatter: {
+            title: string;
+            slug: string;
+          };
+        };
+      }[];
+    };
+    pgpKey: {
+      childPlainText: {
+        content: string;
+      }
+    }
+  }
+};
+
 const IndexPage = ({
   data: {
-    allMdx: { edges },
-  },
-}: {
-  data: { allMdx: { edges: Record<string, any>[] } };
-}) => {
+    projectData: { edges },
+    pgpKey: {
+      childPlainText: { content: pgpKey }
+    },
+  }
+}: IndexQueryData) => {
   const [members, setMembers] = useState(PYDIS_MEMBERS_DEFAULT);
-    
+
   useEffect(() => {
-      fetch("https://discord.com/api/v9/invites/python?with_counts=1")
-        .then(resp => resp.json())
-        .then(data => setMembers(Math.floor(data.approximate_member_count / 1000) * 1000))
+    fetch("https://discord.com/api/v9/invites/python?with_counts=1")
+      .then(resp => resp.json())
+      .then(data => setMembers(Math.floor(data.approximate_member_count / 1000) * 1000))
   }, []);
 
   return (
@@ -88,6 +110,12 @@ const IndexPage = ({
         the AS211224 home page.
       </p>
 
+      <details>
+        <summary>PGP Key 🔑</summary>
+        <p>Import from <a href="/pgp.txt">{window.location.origin}/pgp.txt</a>, or alternatively copy the following into your PGP client of choice:</p>
+        <pre>{pgpKey}</pre>
+      </details>
+
       <h2>Programming languages</h2>
       <Languages />
 
@@ -106,8 +134,8 @@ const IndexPage = ({
 };
 
 export const query = graphql`
-  query Projects {
-    allMdx {
+  query IndexQueries {
+    projectData: allMdx {
       edges {
         node {
           excerpt(pruneLength: 220)
@@ -116,6 +144,12 @@ export const query = graphql`
             slug
           }
         }
+      }
+    }
+
+    pgpKey: file(sourceInstanceName: {eq: "static-files"}, name: {eq: "pgp"}) {
+        childPlainText {
+          content
       }
     }
   }
