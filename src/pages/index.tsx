@@ -119,7 +119,7 @@ const IndexPage = ({
       </p>
 
       <details>
-        <summary>PGP Key 🔑</summary>
+        <summary css={{ cursor: "pointer" }}>PGP Key 🔑</summary>
         <p>Import from <a href="/pgp.txt">{siteUrl}/pgp.txt</a>, or alternatively copy the following into your PGP client of choice:</p>
         <pre>{pgpKey}</pre>
       </details>
