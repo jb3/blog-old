@@ -36,7 +36,7 @@ export default function Page(props: PageProps) {
         }}
       >
         <title>{title}</title>
-        <meta name="title" content={title} />
+        <meta name="og:title" content={title} />
         <meta name="description" content={description} />
         <meta name="og:image" content={logo} />
         <meta name="twitter:creator" content="@JoeBanksDev" />
