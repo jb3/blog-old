@@ -22,6 +22,7 @@ interface PageProps {
 }
 
 export default function Page(props: PageProps) {
+  let title = props.title ? `${props.title} • Joe Banks` : "Joe Banks";
   let description = props.description
     ? props.description
     : "Hey, I'm Joe! I'm a student at the University of Nottingham studying Computer Science, Station Manager at NSTV and Head of Technology at URN.";
@@ -34,11 +35,8 @@ export default function Page(props: PageProps) {
           lang: "en",
         }}
       >
-        {props.title ? (
-          <title>{props.title} • Joe Banks</title>
-        ) : (
-          <title>Joe Banks</title>
-        )}
+        <title>{title}</title>
+        <meta name="title" content={title} />
         <meta name="description" content={description} />
         <meta name="og:image" content={logo} />
         <meta name="twitter:creator" content="@JoeBanksDev" />
