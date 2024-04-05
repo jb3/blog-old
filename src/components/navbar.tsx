@@ -14,6 +14,7 @@ import {
 const navBarStyles = {
   display: "flex",
   alignItems: "center",
+  marginBottom: "20px"
 };
 
 const logoStyles = {

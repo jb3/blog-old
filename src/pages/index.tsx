@@ -113,7 +113,7 @@ const IndexPage = ({
       </h1>
 
       <p>
-        I'm a second year Computer Science student at the{" "}
+        I'm a third year Computer Science student at the{" "}
         <a href="https://cs.nott.ac.uk">University of Nottingham</a>.
       </p>
 
@@ -143,7 +143,7 @@ const IndexPage = ({
       <h2>Programming languages</h2>
       <Languages />
 
-      <h2>Projects</h2>
+      <h2 id="projects">Projects</h2>
       <p>
         Most of my open-source projects are visible on my{" "}
         <a href="https://github.com/jb3">GitHub</a>.
